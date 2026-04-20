@@ -16,9 +16,11 @@ jobs:
           template: classic
           base: header, repositories
           config_timezone: Europe/Berlin
-          theme: terminal
+          # Theme muss direkt unter 'with' stehen
+          config_presets: https://metrics.lecoq.io/terminal 
           plugin_languages: yes
           plugin_languages_details: percentage
           plugin_lines: yes
           plugin_habits: yes
-          plugin_habits_charts: yes
+          plugin_habits_facts: yes
+          plugin_habits_charts: no # Wir schalten Charts aus, um den "Unexpected Error" zu umgehen, bis du mehr Daten hast
