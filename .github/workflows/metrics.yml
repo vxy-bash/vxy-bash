@@ -1,4 +1,4 @@
-name: Metrics
+name: Senior Metrics Dashboard
 on:
   schedule: [{cron: "0 0 * * *"}]
   workflow_dispatch:
@@ -14,13 +14,30 @@ jobs:
           token: ${{ secrets.METRICS_TOKEN }}
           user: vxy-bash
           template: classic
-          base: header, repositories
+          base: header, repositories, metadata
           config_timezone: Europe/Berlin
-          # Wir nutzen jetzt das offizielle Theme-Feld richtig:
-          config_display: large
+          
+          # DESIGN & THEME
+          theme: tokyonight
+          config_animations: yes
           config_padding: 0, 8 + 11%
-          theme: tokyonight # TokyoNight ist extrem beliebt und stabil
+          
+          # 3D COMMIT KALENDER (NUR MONAT)
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: full-month
+          
+          # PROGRAMMIERSPRACHEN
           plugin_languages: yes
+          plugin_languages_sections: most-used
           plugin_languages_details: percentage
+          plugin_languages_limit: 8
+          
+          # CODE-ZEILEN & FOLLOWUP
           plugin_lines: yes
-          # Habits lassen wir weg, bis dein Profil mehr Futter hat, um Fehler zu vermeiden
+          plugin_followup: yes
+          plugin_followup_sections: repositories
+          
+          # AKTIVITÄT (STABIL OHNE CHARTS)
+          plugin_habits: yes
+          plugin_habits_facts: yes
+          plugin_habits_charts: no
