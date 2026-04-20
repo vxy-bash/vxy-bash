@@ -1,19 +1,13 @@
-name: Metrics
-on:
-  schedule: [{cron: "0 0 * * *"}]
-  workflow_dispatch:
-  push: {branches: ["master", "main"]}
-jobs:
-  github-metrics:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - uses: lowlighter/metrics@latest
-        with:
+with:
           token: ${{ secrets.METRICS_TOKEN }}
           user: vxy-bash
           template: classic
-          base: header, community, repositories, metadata
+          base: header, repositories
+          config_timezone: Europe/Berlin
+          theme: terminal  # <--- Sieht viel krasser aus
           plugin_languages: yes
-          plugin_lines: yes
+          plugin_languages_details: percentage
+          plugin_lines: yes # Zeigt wie viele Zeilen Code du geschrieben hast
+          plugin_habits: yes # Zeigt deine aktivsten Zeiten
+          plugin_habits_charts: yes
+          plugin_introduction: yes # Kurze Bio-Stats
