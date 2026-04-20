@@ -5,9 +5,14 @@ on:
     - cron: "0 9 * * *"
   workflow_dispatch:
 
+permissions:
+  contents: write  # WICHTIG: Erlaubt dem Bot das Pushen
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true # Fixt die Node-Warnung
     steps:
       - uses: actions/checkout@v4
 
