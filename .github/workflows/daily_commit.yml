@@ -1,1 +1,23 @@
-name: Daily Activity Boost`non: `n  schedule: [{cron: "0 9 * * *"}]`n  workflow_dispatch:`njobs:`n  build:`n    runs-on: ubuntu-latest`n    steps:`n      - uses: actions/checkout@v4`n      - name: Run Script`n        run: python daily_update.py`n      - name: Commit & Push`n        run: |`n          git config --global user.name "github-actions[bot]"`n          git config --global user.email "action@github.com"`n          git add .`n          git commit -m "chore: daily activity sync" || exit 0`n          git push
+name: Daily Activity Boost
+
+on:
+  schedule:
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Script
+        run: python daily_update.py
+
+      - name: Commit & Push
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "action@github.com"
+          git add activity_log.txt
+          git commit -m "chore: daily activity sync" || exit 0
+          git push
