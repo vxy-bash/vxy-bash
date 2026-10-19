@@ -1,12 +1,12 @@
-<div align="center">
+# Gabriel Knauder
 
-# ⚡ Engineering Metrics
+Developer from Austria. I work on web projects, desktop tools and small games.
 
-<img src="./github-metrics.svg" alt="GitHub Metrics" width="100%">
+## Projects
 
----
-
-### 🛠️ Automation & Analytics
-*This dashboard updates automatically every 24 hours via GitHub Actions.*
-
-</div>
+| Project | What it does |
+| --- | --- |
+| [Portfolio](https://github.com/vxy-bash/portfolio) | Personal website built with React and TypeScript. |
+| [Nova IDE](https://github.com/vxy-bash/nova-ide) | Desktop editor with Monaco, Electron and a Python backend. |
+| [Kevinomat](https://github.com/vxy-bash/kevinomat) | A wheel that picks der, die or das. [Try it](https://vxy-bash.github.io/kevinomat/). |
+| [Vulkan Browser](https://github.com/vxy-bash/vulkan-browser) | An experiment with Vulkan, Qt and Skia rendering. |
